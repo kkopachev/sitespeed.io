@@ -1,0 +1,6 @@
+sitespeed-result/*
+carbon/dist/*
+carbonapi/dist/*
+
+# always include .gitkeep file
+!.gitkeep
