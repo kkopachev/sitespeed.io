@@ -59,13 +59,17 @@ services:
     depends_on:
       - grafana
   sitespeed.io:
-    image: sitespeedio/sitespeed.io:4.7.0
+    #image: sitespeedio/sitespeed.io:4.7.0
+    build:
+      context: ./sitespeed.io
+      dockerfile: Dockerfile
     command: -V
     privileged: true
     shm_size: 1g
     volumes:
       - ./sitespeed-result/:/sitespeed.io/sitespeed-result
       - ./urls.txt/:/sitespeed.io/urls.txt
+      - ./sitespeed.io/send-annotation.js:/usr/src/app/lib/plugins/graphite/send-annotation.js
 volumes:
   grafana:
   graphite:

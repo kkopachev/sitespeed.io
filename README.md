@@ -17,6 +17,7 @@ Then to run everything locally:
         --speedIndex \
         --html.showAllWaterfallSummary true \
         --graphite.host=carbon
+        --resultBaseURL http://localhost 
  ```
  3. Access the dashboard: [http://localhost:3000](http://localhost:3000). In grafana change datasource's host to `graphite-web:8000` and disable basic auth 
  4. When you are done you can shutdown and remove all the docker containers by running `docker-compose down -v && docker-compose rm`
