@@ -13,4 +13,4 @@ buildBinary() {
 }
 
 buildBinary "$DIR/carbon" "github.com/lomik/go-carbon"
-buildBinary "$DIR/carbonapi" "github.com/dgryski/carbonapi"
+
