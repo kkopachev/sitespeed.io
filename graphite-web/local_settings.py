@@ -10,8 +10,6 @@ SECRET_KEY = getenv('SECRET_KEY', urandom(24).encode('hex'))
 if getenv("CLUSTER_SERVERS"):
     CLUSTER_SERVERS = getenv("CLUSTER_SERVERS").split(',')
 
-DEBUG = True
-
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': True,

@@ -6,8 +6,8 @@ RUN apt-get update \
     && apt-get install -y python-dev libcairo2-dev libffi-dev \
     && pip install --no-cache-dir --upgrade pip \
     && pip install --no-cache-dir gunicorn scandir \
-         https://github.com/graphite-project/graphite-web/tarball/1.0.0-pre1 \
-         https://github.com/graphite-project/whisper/tarball/1.0.0-pre1 \
+         https://github.com/graphite-project/graphite-web/tarball/1.0.1 \
+         https://github.com/graphite-project/whisper/tarball/1.0.1 \
     && apt-get clean\
     && rm -rf /root/.cache /var/lib/apt/lists/*
 

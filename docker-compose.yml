@@ -33,20 +33,20 @@ services:
       context: ./graphite-web
       dockerfile: Dockerfile
     restart: always
-    ports:
-      - 8080:8080
+    expose:
+      - 8080
     depends_on:
       - carbon
     volumes:
       - graphite:/opt/graphite/storage
   grafana:
-    image: grafana/grafana:4.2.0
+    image: grafana/grafana:4.3.0-beta1
     ports:
       - 3000:3000
     restart: always
     environment:
-      - GF_SECURITY_ADMIN_PASSWORD=test
-      - GF_SECURITY_ADMIN_USER=test
+      - GF_SECURITY_ADMIN_PASSWORD=thursday
+      - GF_SECURITY_ADMIN_USER=taco
     depends_on:
       - graphite-web
     volumes:
@@ -59,13 +59,19 @@ services:
     depends_on:
       - grafana
   sitespeed.io:
-    image: sitespeedio/sitespeed.io:4.7.0
+    image: sitespeedio/sitespeed.io:5.1.0
     command: -V
     privileged: true
     shm_size: 1g
     volumes:
       - ./sitespeed-result/:/sitespeed.io/sitespeed-result
       - ./urls.txt/:/sitespeed.io/urls.txt
+  nginx:
+    image: nginx
+    ports:
+      - 8080:80
+    volumes:
+      - ./sitespeed-result/:/usr/share/nginx/html/:ro
 volumes:
   grafana:
   graphite:
